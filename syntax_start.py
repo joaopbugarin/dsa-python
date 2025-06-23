@@ -193,7 +193,7 @@ hashset.add(3)
 print(hashset)  # {1, 2, 3}
 print()
 
-print(set([1, 2, 3, 4, 5]))  # create a set from a list
+print(set([3, 2, 1, 4, 5]))  # create a set from a list
 print({i for i in range(5)})  # create a set using a set comprehension
 print({3 for i in range(5)})  # sets have no duplicates, so this will only add 3 once
 
