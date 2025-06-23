@@ -15,10 +15,10 @@ class Solution:
         matches = {"(": ")", "[": "]", "{": "}"}
 
         for char in s:
-            if char in matches:  # Opening bracket
+            if char in matches:
                 stack.append(char)
-            else:  # Closing bracket
-                if not stack:  # No opening bracket to match
+            else:
+                if not stack:
                     return False
                 opening = stack.pop()
                 if matches[opening] != char:
@@ -27,6 +27,7 @@ class Solution:
         return len(stack) == 0
 
 
+x = 1 + 2
 solution = Solution()
 print(solution.isValid(s="([])"))
 print(solution.isValid(s="()[]{}"))
