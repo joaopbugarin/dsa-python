@@ -11,32 +11,13 @@ import math
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        count = []
-        result = []
-
-        def count_letters_loop(words: str) -> Dict[str, int]:
-            for word in words:
-                count.append(count_letters(word))
-            return count
-
-        def count_letters(word: str) -> Dict[str, int]:
-            letters = {}
-            for letter in word:
-                if letter in letters:
-                    letters[letter] += 1
-                else:
-                    letters[letter] = 1
-            return letters
-
-        anagrams = []
-        for i in count_letters_loop(strs):
-            for j in strs:
-                if count_letters(j) == i:
-                    anagrams.append(j)
-            result.append(anagrams)
-            anagrams = []
-
-        return result
+        anagrams = defaultdict(list)
+        for word in strs:
+            key = "".join(
+                sorted(word)
+            )  # sorted returns a list, we need to join to convert back to string
+            anagrams[key].append(word)
+        return list(anagrams.values())
 
 
 solution = Solution()
