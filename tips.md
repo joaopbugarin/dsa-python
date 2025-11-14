@@ -43,3 +43,10 @@ A compact way to build lists from iterables.
 filtered_line = [x for x in row if x.isdigit()]
 ```
 This creates a new list containing only items from `row` that are digits.
+
+### Two pointers
+
+**General idea**
+Have 1 index on beggining/end of the array and then move/squeeze then until they meet/pass each other.
+. 1-indexed array: starts at index 1
+. sorted in non-decreasing order: increasing order but may have repeated values
