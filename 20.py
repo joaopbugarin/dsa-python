@@ -1,33 +1,24 @@
-from typing import List, Optional, Dict, Set, Tuple, Union
-import heapq
-import collections
-from collections import defaultdict, deque, Counter, OrderedDict
-import bisect
-import math
-
-
 class Solution:
     def isValid(self, s: str) -> bool:
-        if len(s) % 2 != 0:
+        if len(list(s)) % 2 != 0:
             return False
-
-        stack = []
-        matches = {"(": ")", "[": "]", "{": "}"}
-
+        stk = []
+        mapping = {
+            '(':')',
+            '{':'}',
+            '[':']'
+        }
         for char in s:
-            if char in matches:
-                stack.append(char)
+            if char in mapping:
+                stk.append(char) #take notes on opening
             else:
-                if not stack:
+                if not stk:
                     return False
-                opening = stack.pop()
-                if matches[opening] != char:
+                if char != mapping[stk.pop()]:
                     return False
+        return len(stk) == 0 #remove all
 
-        return len(stack) == 0
 
-
-x = 1 + 2
 solution = Solution()
 print(solution.isValid(s="([])"))
 print(solution.isValid(s="()[]{}"))
