@@ -1,18 +1,15 @@
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        #trying with a stack containing tuples (num, index)
         n = len(temperatures)
         answer = [0] * n
-        stack = []  # guarda índices
-
-        for i in range(n):
-            # enquanto temp atual é maior que temp no topo da stack
-            while stack and temperatures[i] > temperatures[stack[-1]]:
-                prev_idx = stack.pop()
-                answer[prev_idx] = i - prev_idx
-
-            stack.append(i)
-
+        stk = []
+        for i,t in enumerate(temperatures):
+            while stk and stk[-1][0] < t:
+                stk_t, stk_i = stk.pop()
+                answer[stk_i] = i - stk_i
+            stk.append((t,i))
         return answer
 
-test = Solution()
-print(test.dailyTemperatures([73,74,75,71,69,72,76,73]))
+sol = Solution()
+print(sol.dailyTemperatures([30,38,30,36,35,40,28]))
