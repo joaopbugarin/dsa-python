@@ -18,7 +18,6 @@ class Solution:
                 if pushed == k:
                     return top_app
 
-
 sol = Solution()
 print(sol.topKFrequent([1,1,1,2,2,3], 2))
 print(sol.topKFrequent([1],1))
