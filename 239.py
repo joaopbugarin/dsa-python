@@ -11,7 +11,7 @@ class Solution:
             track_max.append(r)
 
             #remove leftmost if not in the window
-            while l > track_max[0]:
+            while track_max and l > track_max[0]:
                 track_max.popleft()
 
             if r >= k -1:
