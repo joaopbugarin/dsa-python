@@ -1,8 +1,6 @@
-# python-leetcode
+# python-algorithms
 
-My progress tracker for working through the [NeetCode 150](https://neetcode.io/practice) in Python.
-
-Not a career pivot — just studying algorithms properly. This is the kind of thing I should have done earlier, so I'm doing it now.
+Progress tracker for working through the [NeetCode 150](https://neetcode.io/practice) in Python. Using it to improve my python skills and brush up algorithms.
 
 ## Structure
 
