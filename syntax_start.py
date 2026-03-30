@@ -341,9 +341,9 @@ class MyClass:
         self.nums = numes  # self refers to the instance of the class
         self.size = len(numes)  # size of the array
 
-        # methods
-        def getLength(self):
-            return self.size
+    # methods
+    def getLength(self):
+        return self.size
 
-        def getDoubleLength(self):
-            return 2 * self.getLength()  # call the getLength method
+    def getDoubleLength(self):
+        return 2 * self.getLength()  # call the getLength method
