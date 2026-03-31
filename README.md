@@ -1,4 +1,4 @@
-# python-algorithms
+# dsa-python
 
 Progress tracker for working through the [NeetCode 150](https://neetcode.io/practice) in Python. Using it to improve my python skills and brush up algorithms.
 
