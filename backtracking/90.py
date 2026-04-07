@@ -1,0 +1,21 @@
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort() #must be done to avoid duplicates
+        res, sol = [], []
+
+        def dfs(i):
+            if i == len(nums):
+                res.append(sol[:])
+                return
+            #we pick the current number
+            sol.append(nums[i])
+            dfs(i+1)
+            sol.pop()
+
+
+            #to pick the next one we must avoid same-valued ones
+            while i + 1 < len(nums) and nums[i] == nums[i+1]:
+                i += 1 #readjust i to the next not repeated
+            dfs(i+1)
+        dfs(0)
+        return res
