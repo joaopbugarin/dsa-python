@@ -1,19 +1,16 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        res = []
+        intervals.sort(key=lambda x: x[0])
+        #sorting takes less complexity here than heaps
+        for i in range(len(intervals)):
+            if not res:
+                res.append(intervals[i])
 
-        def isValidNode(node, min_val, max_val):
-            if not node:
-                return True
+            elif res[-1][1] >= intervals[i][0]:
+                res[-1] = [ min(res[-1][0],intervals[i][0]), max(res[-1][1],intervals[i][1])]
 
-            if not min_val < node.val < max_val:
-                return False
+            else:
+                res.append(intervals[i])
 
-            return isValidNode(node.right, node.val, max_val) and isValidNode(node.left, min_val, node.val)
-
-        return isValidNode(root, float('-inf'), float('inf'))
+        return res
